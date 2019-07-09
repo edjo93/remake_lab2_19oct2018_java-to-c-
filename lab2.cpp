@@ -7,6 +7,8 @@ using std::cin;
 void menu();
 
 int main(){
+	bool gana_jugador1=false;
+	bool gana_jugador2=false;
 	int n;
 	int respuesta;
 	int counter;//control del ciclo
@@ -84,7 +86,11 @@ int main(){
 
 				break;
 			case 3:
-				cout<<"\ncase3"<<endl;
+
+				//mientras ninguno gane
+				while(!gana_jugador1&&!gana_jugador2){
+					//jugador 1 juega
+				}	
 				break;
 			case 4:
 				cout<<"\nhasta luego"<<endl;	
