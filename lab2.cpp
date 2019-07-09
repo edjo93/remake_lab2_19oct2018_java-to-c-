@@ -13,7 +13,10 @@ int main(){
 	//valores iniciales de la sucesion
 	int var1;
 	int var2;
+	int sum_divisores;
+	int num_divisores;
 	do{
+		
 		menu();
 		cin>>respuesta;
 		//capturamos la opcion
@@ -54,7 +57,31 @@ int main(){
 				cout<<endl;			
 				break;
 			case 2:
-				cout<<"\ncase2"<<endl;
+				counter=1;
+				n=0;
+				sum_divisores=0;
+				num_divisores=0;
+
+				while(n<2){
+					cout<<"\ningrese un numero: ";
+					cin>>n;
+				}
+				//el numero es valido
+				//test 
+				while(counter<n){
+					if(n%counter==0){
+						sum_divisores+=counter;
+						num_divisores++;
+					}
+					counter++;
+				}
+				cout<<"\nsuma de los divisores propios: "<<sum_divisores<<endl;
+				if(sum_divisores<n){
+					cout<<"\nel numero tiene "<<num_divisores<<" divisores propios y es defectivo"<<endl;
+				}else{
+					cout<<"\nel numero tiene "<<num_divisores<<" divisores propios y es abundante"<<endl;
+				}
+
 				break;
 			case 3:
 				cout<<"\ncase3"<<endl;
