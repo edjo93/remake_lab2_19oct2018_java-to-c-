@@ -7,8 +7,11 @@ using std::cin;
 void menu();
 
 int main(){
-	bool gana_jugador1=false;
-	bool gana_jugador2=false;
+	int count_jug_1;
+	int ganador;
+	int count_jug_2;
+	int jugador1;
+	int jugador2;
 	int n;
 	int respuesta;
 	int counter;//control del ciclo
@@ -86,11 +89,65 @@ int main(){
 
 				break;
 			case 3:
+				
+				ganador=false;//no hay ganador
+				count_jug_1=0;
+				count_jug_2=0;
+
 
 				//mientras ninguno gane
-				while(!gana_jugador1&&!gana_jugador2){
+				while(!ganador){
 					//jugador 1 juega
-				}	
+					jugador1=0;
+					jugador2=0;	
+					//validacion
+
+					while(jugador1<1||jugador1>3){
+						cout<<"\nturno jugador 1\n1)piedra\n2)papel\n3)tijera\n?:";cin>>jugador1;
+						
+					}
+					//jugador2 juega
+					//validacion
+					while(jugador2<1||jugador2>3){
+						cout<<"\nturno jugador 2\n1)piedra\n2)papel\n3)tijera\n?:";cin>>jugador2;
+						
+					}
+					//analizamos todos los casos
+					if(jugador1==1&&jugador2==2){
+						count_jug_2++;
+					}	
+
+					if(jugador1==1&&jugador2==3){
+						count_jug_1++;
+					}
+					
+					if(jugador1==2&&jugador2==1){
+						count_jug_1++;
+					}
+					if(jugador1==2&&jugador2==3){
+						count_jug_2++;
+					}
+					if(jugador1==3&&jugador2==1){
+						count_jug_2++;
+					}
+					if(jugador1==3&&jugador2==2){
+						count_jug_1++;
+					}
+					
+					cout<<"\npuntos\njugador1: "<<count_jug_1<<"\njugador2: "<<count_jug_2<<endl;
+					if(count_jug_1==2||count_jug_2==2){//cuando alguien gane el ciclo termina
+						ganador=true;
+					}
+					
+
+					
+				}
+				
+				if(count_jug_1==2){
+					cout<<"\nel ganador es el jugador 1"<<endl;
+				}else{
+					cout<<"\nel ganador es el jugador 2"<<endl;	
+				}		
 				break;
 			case 4:
 				cout<<"\nhasta luego"<<endl;	
